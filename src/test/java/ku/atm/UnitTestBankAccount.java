@@ -19,7 +19,11 @@ public class UnitTestBankAccount {
 
     @Test
     void testDeposit() {
-        account.deposit(50);
+        try {
+            account.deposit(50);
+        } catch (NegativeAmountExecption e) {
+            throw new RuntimeException(e);
+        }
         assertEquals(150, account.getBalance());
     }
 

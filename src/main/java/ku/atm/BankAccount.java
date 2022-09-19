@@ -11,7 +11,9 @@ public class BankAccount {
       this.balance = balance;
    }
  
-   public void deposit(double amount) {
+   public void deposit(double amount) throws NegativeAmountExecption{
+      if (amount < 0)
+         throw new NegativeAmountExecption("cannot deposit negative amount");
       balance = balance + amount;
    }
 
